@@ -1,0 +1,29 @@
+{
+  "name": "mixin-decorator",
+  "version": "1.0.0",
+  "description": "A decorator for mixins that doesn't overwrite existing methods",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "mkdir -p dist && ./node_modules/babel/bin/babel/index.js src/index.js -o dist/index.js",
+    "test": "mocha --require mocha-babel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crossman/mixin-decorator.git"
+  },
+  "keywords": [
+    "mixin",
+    "decorator",
+    "react"
+  ],
+  "author": "Jonathan Crossman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crossman/mixin-decorator/issues"
+  },
+  "homepage": "https://github.com/crossman/mixin-decorator#readme",
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "mocha": "^2.2.5"
+  }
+}

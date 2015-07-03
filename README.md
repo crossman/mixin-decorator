@@ -1,5 +1,6 @@
 # Mixin Decorator
 ![Build Status](https://travis-ci.org/crossman/mixin-decorator.svg)
+![Package Version](https://badge.fury.io/js/mixin-decorator.svg)
 
 This is a simple decorator function for mixing in behaviors from other sources.
 It can be called multiple times or passed multiple behaviors. It is useful for

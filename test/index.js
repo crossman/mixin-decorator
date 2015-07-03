@@ -123,4 +123,34 @@ describe('mixin', function(){
   }) // END it should allow multiple void methods of the same name to be mixed in
 
 
+
+  // it should forward arguments to mixed in methods
+  it('should forward arguments to mixed in methods', function(){
+
+
+    @mixin(callbackWorld)
+    class TestClass{}
+
+    var instance = new TestClass(),
+        x        = 0
+
+    instance.callback(function(){
+      x++
+    })
+    assert.equal(x, 1)
+
+    @mixin(callbackWorld, callback2World)
+    class TestClass2{}
+
+    var instance = new TestClass2()
+
+    instance.callback(function(){
+      x++
+    })
+    assert.equal(x, 3)
+
+
+  }) // END it should forward arguments to mixed in methods
+
+
 }) // END describe mixin

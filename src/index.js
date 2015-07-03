@@ -15,7 +15,7 @@ export default function mixin(...behaviors){
         prototype[key] = function(){
 
           if (prototype[mixinKey].length == 1)
-            return prototype[mixinKey][0].apply(this, ...arguments)
+            return prototype[mixinKey][0].apply(this, arguments)
 
           for (let fn of prototype[mixinKey])
             if (fn.apply(this, arguments) !== undefined)

@@ -1,6 +1,6 @@
 {
   "name": "mixin-decorator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A decorator for mixins that doesn't overwrite existing methods",
   "main": "dist/index.js",
   "scripts": {

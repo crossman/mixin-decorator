@@ -17,11 +17,13 @@ npm install -S mixin-decorator
 ## Examples
 ```js
 // behaviors/hello.js
-export const hello = {
+const hello = {
   hello(){
     console.log("hello world")
   }
 }
+
+export default hello
 ```
 
 ```js

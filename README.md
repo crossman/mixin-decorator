@@ -6,7 +6,7 @@ This is a simple decorator function for mixing in behaviors from other sources.
 It can be called multiple times or passed multiple behaviors. It is useful for
 [React][1] components because it allows multiple definitions of the same method
 for methods that return undefined. So you can have mixins that tap into the
-[component life cycle][2] without breaking each other.
+[component lifecycle][2] without breaking each other.
 
 
 ## Installation
@@ -36,6 +36,44 @@ class Hello{
 
 var obj = new Hello()
 obj.hello() //output: hello world
+```
+
+### Using mixin-decorator with React Components
+mixin-decorator let's multiple mixins declare the same method. This is great for letting mixin's tap into React's lifecycle.
+```js
+import React from "react"
+import mixin from "mixin-decorator"
+
+const behavior1 ={
+  componentDidMount(){
+    console.log("behavior1 tapped into componentDidMount")
+  }
+}
+
+const behavior2 ={
+  componentDidMount(){
+    console.log("so did behavior2")
+  }
+}
+
+@mixin(behavior1, behavior2)
+class MyComponent extends React.Component {
+  componentDidMount(){
+    console.log("i'm a component")
+  }
+
+  render(){
+    return <div>Hello</div>
+  }
+}
+```
+
+When MyComponent is mounted the console would have 3 logs:
+
+```
+i'm a component
+behavior1 tapped into componentDidMount
+so did behavior2
 ```
 
 ## Documentation

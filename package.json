@@ -1,6 +1,6 @@
 {
   "name": "mixin-decorator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A decorator for mixins that doesn't overwrite existing methods",
   "main": "dist/index.js",
   "scripts": {
@@ -14,7 +14,10 @@
   "keywords": [
     "mixin",
     "decorator",
-    "react"
+    "react",
+    "es7",
+    "es6",
+    "lifecycle"
   ],
   "author": "Jonathan Crossman",
   "license": "ISC",

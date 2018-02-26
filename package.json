@@ -4,7 +4,7 @@
   "description": "A decorator for mixins that doesn't overwrite existing methods",
   "main": "dist/index.js",
   "scripts": {
-    "compile": "mkdir -p dist && ./node_modules/babel/bin/babel/index.js src/index.js -o dist/index.js",
+    "compile": "mkdir -p dist && ./node_modules/babel/bin/babel.js src/index.js -o dist/index.js",
     "test": "mocha --require mocha-babel"
   },
   "repository": {

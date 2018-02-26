@@ -1,6 +1,8 @@
 import mixin from "../src"
 import assert from "assert"
 
+const AF = new Symbol('AF');
+
 const helloWorld = {
   hello(){
     return "hello world"
@@ -31,6 +33,12 @@ const callback2World = {
   }
 }
 
+const whyWorld = { 
+  [AF]() { 
+    return "AF";
+  }
+}
+
 
 // mixin
 describe('mixin', function(){
@@ -40,6 +48,17 @@ describe('mixin', function(){
   // it should mix a behavior into a class
   it('should mix a behavior into a class', function(){
 
+
+    @mixin(helloWorld)
+    class TestClass{}
+
+    var instance = new TestClass()
+    assert.equal(typeof instance.hello, "function")
+
+  }) // END it should mix a behavior into a class
+
+  // it should mix a behavior with a Symbol as a name into a class
+  it('should mix a behavior into a class', function(){
 
     @mixin(helloWorld)
     class TestClass{}

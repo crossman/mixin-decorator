@@ -5,7 +5,8 @@ export default function mixin(...behaviors){
     behaviors.forEach(behavior => {
 
       Object.keys(behavior).forEach(key => {
-        const mixinKey = `__mixin_${key}`
+
+        const mixinKey = typeof key === 'symbol' ? key : `__mixin_${key}`;
 
         prototype[mixinKey] = prototype[mixinKey] || [prototype[key]]
         prototype[mixinKey] = prototype[mixinKey]

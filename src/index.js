@@ -6,7 +6,13 @@ export default function mixin(...behaviors){
       const keySet = Object.keys(behavior).concat(Object.getOwnPropertySymbols(behavior));
       keySet.forEach(key => { 
 
-        const mixinKey = typeof key === 'symbol' ? key : `__mixin_${key}`;
+        const keyType = typeof key; 
+        if ( (keyType !== 'symbol' && keyType !== 'string') || key === 'undefined' ) { 
+          throw new Error('Mixin key is undefined');
+        }
+
+        const mixinKey = keyType === 'symbol' ? key : `__mixin_${key}`;
+
         prototype[mixinKey] = prototype[mixinKey] || [prototype[key]]
         prototype[mixinKey] = prototype[mixinKey]
           .concat(behavior[key])

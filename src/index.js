@@ -3,11 +3,10 @@ export default function mixin(...behaviors){
   return function({prototype}){
 
     behaviors.forEach(behavior => {
-
-      Object.keys(behavior).forEach(key => {
+      const keySet = Object.keys(behavior).concat(Object.getOwnPropertySymbols(behavior));
+      keySet.forEach(key => { 
 
         const mixinKey = typeof key === 'symbol' ? key : `__mixin_${key}`;
-
         prototype[mixinKey] = prototype[mixinKey] || [prototype[key]]
         prototype[mixinKey] = prototype[mixinKey]
           .concat(behavior[key])

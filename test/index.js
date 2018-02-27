@@ -1,7 +1,7 @@
 import mixin from "../src"
 import assert from "assert"
 
-const AF = new Symbol('AF');
+const AF = Symbol('AF');
 
 const helloWorld = {
   hello(){
@@ -49,11 +49,11 @@ describe('mixin', function(){
   it('should mix a behavior into a class', function(){
 
 
-    @mixin(helloWorld)
+    @mixin(whyWorld)
     class TestClass{}
 
     var instance = new TestClass()
-    assert.equal(typeof instance.hello, "function")
+    assert.equal(typeof instance[AF], "function")
 
   }) // END it should mix a behavior into a class
 

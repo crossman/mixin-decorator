@@ -1,6 +1,6 @@
 {
-  "name": "mixin-decorator",
-  "version": "1.0.5",
+  "name": "mixin-decorator-with-symbols",
+  "version": "0.0.1",
   "description": "A decorator for mixins that doesn't overwrite existing methods",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crossman/mixin-decorator.git"
+    "url": "https://github.com/bobbwhy/mixin-decorator-with-symbols.git"
   },
   "keywords": [
     "mixin",
@@ -19,10 +19,10 @@
     "es6",
     "lifecycle"
   ],
-  "author": "Jonathan Crossman",
+  "author": "Robert LaMarca",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/crossman/mixin-decorator/issues"
+    "url": "https://github.com/bobbwhy/mixin-decorator-with-symbols/issues"
   },
   "homepage": "https://github.com/crossman/mixin-decorator#readme",
   "devDependencies": {

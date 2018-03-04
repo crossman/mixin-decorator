@@ -1,3 +1,15 @@
+## Mixin Decorator with Symbols: 
+This is a modification ( fork) of the Mixin Decorator with all its initial README.md 
+listed below.
+
+This version adds the ability for mixin behaviors to have Symbols as keys instead of only strings.
+
+This modification was made as a pull request to the original library.  Pending that request, I have published this library here.
+
+**Meanwhile, thanks to [crossman](https://www.npmjs.com/~crossman)** for building this in the first place.
+
+Otherwise, please refer to the original documentation below.
+
 # Mixin Decorator
 ![Build Status](https://travis-ci.org/crossman/mixin-decorator.svg)
 ![Package Version](https://badge.fury.io/js/mixin-decorator.svg)

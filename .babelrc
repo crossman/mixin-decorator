@@ -1,0 +1,9 @@
+{ 
+  "presets": [
+    "@babel/env"
+  ],
+  "plugins": [
+    ["@babel/proposal-decorators", { "decoratorsBeforeExport": true }],
+    "@babel/proposal-class-properties"
+  ]
+}

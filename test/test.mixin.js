@@ -1,5 +1,10 @@
+
+import { expect } from 'chai';
+
 import mixin from "../src"
 import assert from "assert"
+
+const AF = Symbol('AF');
 
 const helloWorld = {
   hello(){
@@ -31,78 +36,77 @@ const callback2World = {
   }
 }
 
+const whyWorld = { 
+  [AF]() { 
+    return "AF";
+  }
+}
+
 
 // mixin
 describe('mixin', function(){
 
+  it('should mix a function with a symbol for a name into a class',
+    () => {
 
+    @mixin(whyWorld)
+    class TestClass{}
 
-  // it should mix a behavior into a class
-  it('should mix a behavior into a class', function(){
+    const instance = new TestClass();
+    expect(typeof instance[AF]).to.equal('function');
+    expect(instance[AF]()).to.equal('AF');
+  });
 
+  it('should mix a function with a string for a name into a class',
+    () => {
 
     @mixin(helloWorld)
     class TestClass{}
 
-    var instance = new TestClass()
-    assert.equal(typeof instance.hello, "function")
+    const instance = new TestClass();
+    expect(typeof instance.hello).to.equal('function');
+    expect(instance.hello()).to.equal('hello world');
 
-  }) // END it should mix a behavior into a class
+  });
 
+  // it(`should throw an error if multiple non-void functions of the same name
+  //     are mixed in`,
+  //   () => {
+  //   @mixin(helloWorld)
+  //   @mixin(hiWorld)
+  //   class TestClass{}
+  //
+  //   var instance = new TestClass()
+  //   const testHello = () => instance.hello();
+  //   expect(testHello).to.throw(Error);
+  // });
 
+  it(`should allow multiple mixins to be applied if none of the method names
+      are the same`,
+    () => {
 
-  // it should allow data to be returned if there is only one method
-  it('should allow data to be returned if there is only one method', function(){
-
-
-    @mixin(helloWorld)
-    class TestClass{}
-
-    var instance = new TestClass()
-    assert.equal(instance.hello(), helloWorld.hello())
-
-
-  }) // END it should allow data to be returned if there is only one method
-
-
-
-  // it should throw a warning if multiple non-void functions are mixed in
-  it('should throw an error if multiple non-void functions are mixed in', function(){
-
-
-    @mixin(helloWorld)
-    @mixin(hiWorld)
-    class TestClass{}
-
-    var instance = new TestClass()
-    assert.throws(() => instance.hello())
-
-
-  }) // END it should throw a warning if multiple non-void functions are mixed in
-
-
-
-  // it should allow multiple mixins to be applied
-  it('should allow multiple mixins to be applied', function(){
-
-
-    @mixin(helloWorld)
-    @mixin(byeWorld)
-    class TestClass{}
-
-    var instance = new TestClass()
-    assert.equal(instance.hello(), helloWorld.hello())
-    assert.equal(instance.bye(), byeWorld.bye())
+    // // @mixin(helloWorld)
+    // @mixin(byeWorld)
+    // class TestClass{}
+    //
+    // var instance = new TestClass();
+    //
+    // // expect(instance.hello()).to.equal(helloWorld.hello());
+    // expect(instance.bye()).to.equal(byeWorld.bye());
+    //
+    // return
 
     @mixin(helloWorld, byeWorld)
     class TestClass2{}
 
-    var instance2 = new TestClass2()
-    assert.equal(instance2.hello(), helloWorld.hello())
-    assert.equal(instance2.bye(), byeWorld.bye())
+    var instance2 = new TestClass2();
+    expect(instance2.hello()).to.equal(helloWorld.hello());
+    expect(instance2.bye()).to.equal(byeWorld.bye())
 
 
-  }) // END it should allow multiple mixins to be applied
+  });
+
+  return
 
 
   // it should allow multiple void methods of the same name to be mixed in
